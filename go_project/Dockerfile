@@ -1,4 +1,22 @@
-FROM ubuntu:latest
-LABEL authors="SmithHelix"
+# go_scraper/Dockerfile
+FROM golang:1.20
 
-ENTRYPOINT ["top", "-b"]
+# appディレクトリの作成
+RUN mkdir /go/src/app
+
+# ワーキングディレクトリの設定
+WORKDIR /go/src/app
+
+# Goモジュールの初期化
+RUN go mod init example.com/go_project
+
+COPY . /go/src/app
+
+COPY . .
+RUN go build -o main .
+
+RUN chmod +x main
+
+EXPOSE 8080
+
+CMD ["./main"]

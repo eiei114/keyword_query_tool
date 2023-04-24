@@ -1,3 +1,3 @@
-module keyword_query_tool
+module go_project
 
 go 1.20
