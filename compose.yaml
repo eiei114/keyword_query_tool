@@ -6,6 +6,14 @@ services:
     build: ./go_project
     container_name: go_project
     tty: true
+    environment:
+      - CUSTOM_SEARCH_API_KAY=${CUSTOM_SEARCH_API_KAY}
+      - SEARCH_ENGINE_ID=${SEARCH_ENGINE_ID}
+      - APP_SCRIPT_ID=${APP_SCRIPT_ID}
+    env_file:
+      - .env
+    volumes:
+      - ./app:/go/src/app
     ports:
       - "8080:8080"
 

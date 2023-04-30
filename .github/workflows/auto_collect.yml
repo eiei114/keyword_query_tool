@@ -1,0 +1,23 @@
+name: keyword-query
+on:
+  schedule: # run every day at 12:00 Tokyo time
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      CUSTOM_SEARCH_API_KAY: ${{ secrets.CUSTOM_SEARCH_API_KAY }}
+      SEARCH_ENGINE_ID: ${{ secrets.SEARCH_ENGINE_ID }}
+      APP_SCRIPT_ID: ${{ secrets.APP_SCRIPT_ID }}
+    steps:
+        - uses: actions/checkout@v3.3.0
+        - name: create env file
+          run: |
+            touch .env
+            echo "CUSTOM_SEARCH_API_KAY=${CUSTOM_SEARCH_API_KAY}" >> .env
+            echo "SEARCH_ENGINE_ID=${SEARCH_ENGINE_ID}" >> .env
+            echo "APP_SCRIPT_ID=${APP_SCRIPT_ID}" >> .env
+        - name: Build
+          run: |
+            docker-compose up -d --build

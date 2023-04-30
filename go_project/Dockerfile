@@ -10,6 +10,9 @@ WORKDIR /go/src/app
 # Goモジュールの初期化
 RUN go mod init example.com/go_project
 
+# .envファイルのコピー
+COPY .env /go/src/app
+
 COPY . /go/src/app
 
 COPY . .
