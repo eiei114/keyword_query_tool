@@ -10,6 +10,9 @@ WORKDIR /go/src/app
 # Goモジュールの初期化
 RUN go mod init example.com/go_project
 
+# 必要なパッケージを取得
+RUN go get github.com/joho/godotenv
+
 COPY . /go/src/app
 
 RUN go build -o main .
