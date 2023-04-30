@@ -11,13 +11,13 @@ jobs:
       SEARCH_ENGINE_ID: ${{ secrets.SEARCH_ENGINE_ID }}
       APP_SCRIPT_ID: ${{ secrets.APP_SCRIPT_ID }}
     steps:
-        - uses: actions/checkout@v3.3.0
-        - name: create env file
-          run: |
-            touch .env
-            echo "CUSTOM_SEARCH_API_KAY=${CUSTOM_SEARCH_API_KAY}" >> .env
-            echo "SEARCH_ENGINE_ID=${SEARCH_ENGINE_ID}" >> .env
-            echo "APP_SCRIPT_ID=${APP_SCRIPT_ID}" >> .env
-        - name: Build
-          run: |
-            docker-compose up -d --build
+      - uses: actions/checkout@v3.3.0
+      - name: create env file
+        run: |
+          touch go_project/.env
+          echo "CUSTOM_SEARCH_API_KAY=${CUSTOM_SEARCH_API_KAY}" >> go_project/.env
+          echo "SEARCH_ENGINE_ID=${SEARCH_ENGINE_ID}" >> go_project/.env
+          echo "APP_SCRIPT_ID=${APP_SCRIPT_ID}" >> go_project/.env
+      - name: Build
+        run: |
+          docker-compose up -d --build
