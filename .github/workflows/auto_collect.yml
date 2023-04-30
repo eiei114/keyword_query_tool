@@ -19,5 +19,6 @@ jobs:
           echo "SEARCH_ENGINE_ID=${SEARCH_ENGINE_ID}" >> go_project/.env
           echo "APP_SCRIPT_ID=${APP_SCRIPT_ID}" >> go_project/.env
       - name: Build
+        timeout-minutes: 4
         run: |
           docker-compose up -d --build
