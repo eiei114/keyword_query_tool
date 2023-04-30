@@ -18,7 +18,7 @@ jobs:
           echo "CUSTOM_SEARCH_API_KAY=${CUSTOM_SEARCH_API_KAY}" >> go_project/.env
           echo "SEARCH_ENGINE_ID=${SEARCH_ENGINE_ID}" >> go_project/.env
           echo "APP_SCRIPT_ID=${APP_SCRIPT_ID}" >> go_project/.env
-      - name: Build
-        timeout-minutes: 4
+      - name: Build and run server
         run: |
           docker-compose up -d --build
+          sleep 180 # wait for server to start
