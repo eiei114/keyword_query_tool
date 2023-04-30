@@ -12,7 +12,6 @@ services:
   python_project:
     build: ./python_project
     container_name: python_project
-    working_dir: '/root/python_project'
     tty: true
     depends_on:
       - go_project
