@@ -2,9 +2,7 @@
 
 ## Overview
 - 一覧Sheetにキーワードを入力
-![image](https://user-images.githubusercontent.com/60887155/235363972-5ecd021b-8009-405a-9ed3-032c791ae1d0.png)
 - 一覧Sheetに入力したキーワードを元に、検索対象のシートからキーワードを含む行を抽出し、検索結果シートに出力する
-![image](https://user-images.githubusercontent.com/60887155/235364588-2835e3e4-a0aa-47fa-8264-a323045448ee.png)
  - どのような情報が分かるの？
  ![image](https://user-images.githubusercontent.com/60887155/235364639-681173ea-7cd2-441f-ae60-d82038fac168.png)
 - Cron jobで一日に一回更新するようになっている
